@@ -1,0 +1,48 @@
+table {
+  border-spacing: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 18px;
+  position: relative;
+}
+
+td {
+  padding: 20px;
+  font-weight: 500;
+  padding-right: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #e6e6fa;
+}
+
+tr:nth-child(odd) {
+  background-color: #ee82ee;
+}
+
+th {
+  background-color: #833ae0;
+  color: white;
+  padding: 10px;
+  padding-right: 50px;
+}
+
+tr:hover {
+  background-color: #deb887;
+}
+
+td {
+  position: relative;
+}
+
+td:first-child:hover:before {
+  content: "TIN: 7736207543";
+  position: absolute;
+  z-index: 4;
+  left: 80px;
+  top: 40px;
+  padding: 5px;
+  background-color: #e6e6fa;
+  border-radius: 10px;
+  font-size: 14px;
+}
