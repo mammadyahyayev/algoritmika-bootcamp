@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+body {
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.content h1 {
+  font-size: 26px;
+}
+
+.content p {
+  line-height: 20px;
+}
+
+.img-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.img-wrapper img {
+  width: 80%;
+  max-width: 250px;
+}
+
+footer {
+  display: flex;
+  margin-top: 45px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.footer-image {
+  display: none;
+}
+
+.footer-item {
+  width: 40%;
+  margin-bottom: 34px;
+  margin-right: 15px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 600px) {
+  .img-wrapper {
+    max-width: 100%;
+  }
+
+  .img-wrapper img {
+    width: 40%;
+    max-width: 250px;
+  }
+
+  .footer-item {
+    width: 45%;
+  }
+
+  .content h1 {
+    font-size: 24px;
+  }
+
+  .content p {
+      font-size: 16px;
+  }
+
+  .footer h4 {
+    font-size: 16px;
+  }
+
+  .footer p {
+      font-size: 13px;
+  }
+}
+
+@media (min-width: 750px) {
+  .container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  .img-wrapper {
+    width: 40%;
+  }
+
+  .img-wrapper img {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  .content p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  footer {
+    flex-direction: row;
+    width: 80%;
+    margin: 40px auto;
+  }
+
+  .footer-item {
+    width: 20%;
+    margin-right: 30px;
+  }
+
+  .footer-item h4 {
+    font-size: 18px;
+  }
+
+  .footer-item p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .img-wrapper {
+    width: 45%;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+  }
+
+  .content {
+    width: 50%;
+  }
+
+  .content p {
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  .content h1 {
+    font-size: 55px;
+  }
+
+  footer {
+    align-items: center;
+    max-width: 1200px;
+    margin: 50px auto;
+  }
+
+  .footer-image {
+    display: block;
+    margin-right: 100px;
+    width: 15%;
+  }
+
+  .footer-item {
+    width: 150px;
+    margin-right: 95px;
+  }
+
+  .footer-item h4 {
+    font-size: 25px;
+  }
+
+  .footer-item p {
+    font-size: 18px;
+  }
+}
