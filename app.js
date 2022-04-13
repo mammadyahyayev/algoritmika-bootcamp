@@ -8,7 +8,8 @@ const insertBtnElement = document.getElementById("insertBtn");
 const todoInput = document.getElementById("todo-input");
 const toolTipElement = document.getElementById("tooltip-box");
 const sortIconElement = document.getElementById("sort-icon");
-const deleteIconElement = document.querySelectorAll(".wrong-icon");
+const deleteIconElement = document.querySelector(".wrong-icon");
+const backDropElement = document.querySelector(".backdrop");
 
 let todos = [];
 
@@ -189,3 +190,23 @@ todoListElement.addEventListener("click", (e) => {
     DomHelper.removeChildFromList(todoListElement, todoBox);
   }
 });
+
+deleteIconElement.addEventListener("click", () => (todoInput.value = ""));
+
+window.addEventListener("beforeunload", () => {
+  this.localStorage.setItem("todos", JSON.stringify(todos));
+});
+
+window.addEventListener("load", () => {
+  const fetchedTodos = JSON.parse(window.localStorage.getItem("todos"));
+  todos = [...fetchedTodos];
+  TodoHelper.loadAllTodos();
+
+  if (todos.length > 0) {
+    setTimeout(() => {
+      backDropElement.classList.add("invisible");
+    }, 1000);
+  }
+});
+
+backDropElement.classList.remove("invisible");
