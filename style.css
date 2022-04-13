@@ -80,13 +80,22 @@ body {
 ************************* 
 */
 
-.todos {
+#todo-input-area {
+  margin-right: 0.5em;
   border: 1px solid var(--gray-color);
   border-radius: 12px;
   margin-top: 0.5em;
 }
 
-.todos .todo {
+#todos {
+  border: 1px solid var(--gray-color);
+  border-radius: 12px;
+  margin-top: 0.5em;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.todo {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -94,7 +103,7 @@ body {
   margin-bottom: 0.5em;
 }
 
-.todos .todo input {
+.todo input {
   width: 200px;
   font-size: 16px;
   padding: 0.4em;
@@ -102,7 +111,7 @@ body {
   border: none;
 }
 
-.todos .todo .wrong-icon {
+.todo .wrong-icon {
   margin-right: 1em;
   text-align: center;
   border: 1px solid var(--gray-color);
@@ -117,7 +126,7 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.todos .todo .wrong-icon:hover {
+.todo .wrong-icon:hover {
   color: var(--white-color);
   background-color: var(--purple-bgcolor);
   cursor: pointer;
@@ -168,4 +177,34 @@ body {
 
 .insert-button .btn:hover {
   cursor: pointer;
+}
+
+/* 
+*************************
+    SCROLLBAR STYLE
+************************* 
+*/
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
