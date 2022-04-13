@@ -1,3 +1,10 @@
+:root {
+    --yellow-bgcolor: #FFDC40;
+    --purple-bgcolor: #833AE0;
+    --purple-light-bgcolor: #9953F1;
+    --gray-color: #D2D2D2;
+}
+
 * {
     margin: 0;
     padding: 0;
