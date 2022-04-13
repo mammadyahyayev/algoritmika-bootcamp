@@ -54,7 +54,6 @@ body {
 }
 
 .img-wrapper {
-  width: 100%;
   text-align: right;
   margin-top: 0.8em;
 }
@@ -68,6 +67,14 @@ body {
 #sort-icon {
   transition: transform 0.5s ease-out;
   cursor: pointer;
+  width: 30px;
+  filter: invert(85%) sepia(21%) saturate(2%) hue-rotate(343deg) brightness(94%)
+    contrast(96%);
+}
+
+#sort-icon:hover {
+  filter: invert(0%) sepia(0%) saturate(33%) hue-rotate(134deg) brightness(94%)
+    contrast(100%);
 }
 
 .rotate {
@@ -82,6 +89,12 @@ body {
 
 .tooltip-area {
   position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
 }
 
 .tooltip {
@@ -111,7 +124,6 @@ body {
   margin-right: 0.5em;
   border: 1px solid var(--gray-color);
   border-radius: 12px;
-  margin-top: 0.5em;
 }
 
 #todos {

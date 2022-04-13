@@ -8,6 +8,7 @@ const insertBtnElement = document.getElementById("insertBtn");
 const todoInput = document.getElementById("todo-input");
 const toolTipElement = document.getElementById("tooltip-box");
 const sortIconElement = document.getElementById("sort-icon");
+const deleteIconElement = document.querySelectorAll(".wrong-icon");
 
 let todos = [];
 
@@ -29,17 +30,9 @@ class Todo {
       date: this.#date,
     };
     todos.push(todoObj);
-    console.log(todos);
-  }
-
-  removeTodo(todoId) {
-    const copiedTodos = [...todos];
-    copiedTodos.filter((todo) => todo.id !== todoId);
-    todos = [...copiedTodos];
   }
 
   createHtmlTodoElement(todo) {
-    console.log(todo);
     const todoDiv = DomHelper.createElement("div", {
       className: "todo",
       id: `todo-${todo.#id}`,
@@ -142,6 +135,12 @@ class TodoHelper {
       }, 2000);
     }
   }
+
+  static removeTodo(todoId) {
+    const copiedTodos = [...todos];
+    copiedTodos.filter((todo) => todo.id !== todoId);
+    todos = [...copiedTodos];
+  }
 }
 
 class DomHelper {
@@ -163,6 +162,10 @@ class DomHelper {
       parentElement.firstChild.remove();
     }
   }
+
+  static removeChildFromList(parentElement, childElement) {
+    parentElement.removeChild(childElement);
+  }
 }
 
 // events
@@ -175,4 +178,14 @@ sortIconElement.addEventListener("click", () => {
   else TodoHelper.sortAscTodos();
 
   TodoHelper.loadAllTodos();
+});
+
+todoListElement.addEventListener("click", (e) => {
+  const deleteIcon = e.target.closest("p");
+  if (deleteIcon !== null) {
+    const todoBox = deleteIcon.closest(".todo");
+    const todoId = todoBox.id;
+    TodoHelper.removeTodo(todoId);
+    DomHelper.removeChildFromList(todoListElement, todoBox);
+  }
 });
