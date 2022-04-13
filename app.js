@@ -1,6 +1,3 @@
-// TODO: When user close the window, store them in local storage
-// TODO: When user enter the page load all of his todos
-
 // DOM selectors
 const todoListElement = document.getElementById("todos");
 const todoElement = document.querySelectorAll(".todo");
@@ -138,8 +135,10 @@ class TodoHelper {
   }
 
   static removeTodo(todoId) {
-    const copiedTodos = [...todos];
-    copiedTodos.filter((todo) => todo.id !== todoId);
+    let copiedTodos = [...todos];
+    copiedTodos = copiedTodos.filter(
+      (todo) => todo.id != todoId.replace("todo-", "")
+    );
     todos = [...copiedTodos];
   }
 }
@@ -194,6 +193,7 @@ todoListElement.addEventListener("click", (e) => {
 deleteIconElement.addEventListener("click", () => (todoInput.value = ""));
 
 window.addEventListener("beforeunload", () => {
+  this.localStorage.removeItem("todos");
   this.localStorage.setItem("todos", JSON.stringify(todos));
 });
 
@@ -206,6 +206,8 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       backDropElement.classList.add("invisible");
     }, 1000);
+  } else if (todos.length === 0) {
+    backDropElement.classList.add("invisible");
   }
 });
 
