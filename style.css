@@ -6,6 +6,9 @@
   --purple-light-bgcolor: #9953f1;
   --gray-color: #d2d2d2;
   --white-color: #ece0fa;
+  --gray-bg-color: rgb(124, 123, 123);
+  --light-gray-bg-color: #f3f3f3;
+  --black-backdrop-bg-color: #252222;
 }
 
 * {
@@ -246,4 +249,41 @@ body {
   background: #555;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+/* 
+*************************
+    SPINNER STYLE
+************************* 
+*/
+
+.spinner {
+  border: 16px solid var(--light-gray-bg-color); /* Light grey */
+  border-top: 16px solid var(--purple-bgcolor); /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: var(--black-backdrop-bg-color);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
