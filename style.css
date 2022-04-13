@@ -76,6 +76,33 @@ body {
 
 /* 
 *************************
+    TOOLTIP AREA STYLE
+************************* 
+*/
+
+.tooltip-area {
+  position: relative;
+}
+
+.tooltip {
+  font-size: 12px;
+  padding: 0.6em;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  width: 180px;
+}
+
+.down-arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 20px;
+  top: 24px;
+}
+
+/* 
+*************************
     TODOS AREA STYLE
 ************************* 
 */
