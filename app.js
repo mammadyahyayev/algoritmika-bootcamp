@@ -9,7 +9,7 @@ const deleteIconElement = document.querySelector(".wrong-icon");
 const backDropElement = document.querySelector(".backdrop");
 
 let todos = [];
-const TIMEOUT = 1000;
+const TIMEOUT = 500;
 
 class Todo {
   #todo;
@@ -197,6 +197,7 @@ window.addEventListener("beforeunload", () => {
 });
 
 window.addEventListener("load", () => {
+  backDropElement.classList.remove("invisible");
   const fetchedTodos = JSON.parse(window.localStorage.getItem("todos"));
   todos = [...fetchedTodos];
   TodoHelper.loadAllTodos();
@@ -210,4 +211,10 @@ window.addEventListener("load", () => {
   }
 });
 
-backDropElement.classList.remove("invisible");
+// key event
+todoInput.addEventListener("keyup", (e) =>  {
+  if(e.key == "Enter") {
+    TodoHelper.addTodoElement();
+  }
+});
+
