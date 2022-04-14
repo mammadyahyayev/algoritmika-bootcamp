@@ -9,6 +9,7 @@ const deleteIconElement = document.querySelector(".wrong-icon");
 const backDropElement = document.querySelector(".backdrop");
 
 let todos = [];
+const TIMEOUT = 1000;
 
 class Todo {
   #todo;
@@ -56,10 +57,6 @@ class Todo {
 class TodoHelper {
   static generateId() {
     return Math.floor(Math.random() * 100_000_000) + 1;
-  }
-
-  static parseDate(date) {
-    // parse default date format into dd:MM:yyyy HH:mm:ss
   }
 
   static sortAscTodos() {
@@ -168,7 +165,9 @@ class DomHelper {
   }
 }
 
-// events
+// ****************
+//   EVENTS
+// ****************
 insertBtnElement.addEventListener("click", TodoHelper.addTodoElement);
 
 sortIconElement.addEventListener("click", () => {
@@ -205,7 +204,7 @@ window.addEventListener("load", () => {
   if (todos.length > 0) {
     setTimeout(() => {
       backDropElement.classList.add("invisible");
-    }, 1000);
+    }, TIMEOUT);
   } else if (todos.length === 0) {
     backDropElement.classList.add("invisible");
   }
