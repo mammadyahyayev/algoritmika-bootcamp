@@ -1,7 +1,7 @@
 # Task Tracker 
 Application that allows users to create, delete, sort their own task
 
-- Author: @MamedYahyayev
+- Author: [Məmməd Yahyayev](https://github.com/MamedYahyayev)
 - Version: 1.0.0
 - Release Date: 14.04.2022
 
