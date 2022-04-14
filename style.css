@@ -133,7 +133,7 @@ body {
   border: 1px solid var(--gray-color);
   border-radius: 12px;
   margin-top: 0.5em;
-  max-height: 200px;
+  height: 180px;
   overflow-y: scroll;
 }
 
