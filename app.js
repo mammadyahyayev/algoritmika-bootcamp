@@ -127,7 +127,7 @@ class TodoHelper {
 
       setTimeout(() => {
         toolTipElement.classList.remove("visible");
-      }, 2000);
+      }, TIMEOUT * 4);
     }
   }
 
@@ -183,8 +183,7 @@ todoListElement.addEventListener("click", (e) => {
   const deleteIcon = e.target.closest("p");
   if (deleteIcon !== null) {
     const todoBox = deleteIcon.closest(".todo");
-    const todoId = todoBox.id;
-    TodoHelper.removeTodo(todoId);
+    TodoHelper.removeTodo(todoBox.id);
     DomHelper.removeChildFromList(todoListElement, todoBox);
   }
 });
