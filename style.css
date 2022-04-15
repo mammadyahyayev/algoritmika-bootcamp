@@ -8,7 +8,10 @@
   --white-color: #ece0fa;
   --gray-bg-color: rgb(124, 123, 123);
   --light-gray-bg-color: #f3f3f3;
-  --black-backdrop-bg-color: #252222;
+  --black-bg-color: #252222;
+  --box-shadow-bg-color: #ccc;
+  --scrollbar-bg-color: #888;
+  --scrollbar-hover-bg-color: #555;
 }
 
 * {
@@ -104,8 +107,8 @@ body {
   font-size: 12px;
   padding: 0.6em;
   border-radius: 5px;
-  background-color: black;
-  color: white;
+  background-color: var(--black-bg-color);
+  color: var(--white-color);
   width: 180px;
 }
 
@@ -221,7 +224,7 @@ body {
 .insert-button .btn:hover {
   cursor: pointer;
   transform: translateY(-5px);
-  box-shadow: 3px 3px 7px #ccc;
+  box-shadow: 3px 3px 7px var(--box-shadow-bg-color);
 }
 
 /* 
@@ -237,19 +240,19 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--white-color);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--scrollbar-bg-color);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--scrollbar-hover-bg-color);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -261,8 +264,8 @@ body {
 */
 
 .spinner {
-  border: 16px solid var(--light-gray-bg-color); /* Light grey */
-  border-top: 16px solid var(--purple-bgcolor); /* Blue */
+  border: 16px solid var(--light-gray-bg-color);
+  border-top: 16px solid var(--purple-bgcolor);
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -278,13 +281,20 @@ body {
   }
 }
 
+
+/* 
+*************************
+    BACKDROP STYLE
+************************* 
+*/
+
 .backdrop {
   position: absolute;
   top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 999;
-  background-color: var(--black-backdrop-bg-color);
+  background-color: var(--black-bg-color);
   opacity: 0.6;
   display: flex;
   align-items: center;
