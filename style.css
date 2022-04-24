@@ -1,5 +1,7 @@
 :root {
   --white-bg-color-500: #f5f5f6;
+  --white-bg-color-200: #c6c6c6;
+  --white-bg-color-600: #e5e5e5;
   --white-bg-color-700: #ffffff;
   --black-color: #000000;
   --gray-color: #959ba4;
@@ -93,7 +95,7 @@ header {
 .converter-title {
   font-weight: 700;
   font-size: 36px;
-  color: #000000;
+  color: var(--black-color);
   display: inline-block;
 }
 
@@ -102,7 +104,7 @@ header {
 }
 
 .converter-area .converter-text {
-  color: #9f9f9f;
+  color: var(--gray-color);
   font-size: 12px;
   margin-bottom: 0.7em;
 }
@@ -115,21 +117,21 @@ header {
 .currency {
   width: 65px;
   height: 30px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--white-bg-color-600);
   font-weight: 400;
   font-size: 12px;
-  background-color: #ffffff;
-  color: #c6c6c6;
+  background-color: var(--white-bg-color-700);
+  color: var(--white-bg-color-200);
 }
 
 .currency.active {
-  background-color: #000000;
+  background-color: var(--black-color);
 }
 
 .value-area {
   width: 259px;
   height: 102px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--white-bg-color-600);
   border-radius: 3px;
 }
 
@@ -137,8 +139,8 @@ header {
   height: 38px;
   font-weight: 700;
   font-size: 36px;
-  border: 1px solid #c6c6c6;
-  color: #000000;
+  border: 1px solid var(--white-bg-color-200);
+  color: var(--black-color);
   margin: 0.2em;
   border-radius: 3px;
   width: 60%;
@@ -149,7 +151,7 @@ header {
 .current-currency {
   font-weight: 400;
   font-size: 12px;
-  color: #c6c6c6;
+  color: var(--white-bg-color-200);
   margin-left: 0.7em;
   margin-top: 2em;
 }
