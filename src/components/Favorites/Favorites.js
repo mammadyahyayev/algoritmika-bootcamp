@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
-import './Favorites.css';
+import React from "react";
+import "./Favorites.css";
 
+const Favorites = () => {
+  const [favorites, setFavorites] = React.useState({
+    title: "Новый список",
+    movies: [{ imdbID: "tt0068646", title: "The Godfather", year: 1972 }],
+  });
 
-class Favorites extends Component {
-    state = {
-        title: 'Новый список',
-        movies: [
-            { imdbID: 'tt0068646', title: 'The Godfather', year: 1972 }
-        ]
-    }
-    render() { 
-        return (
-            <div className="favorites">
-                <input value="Новый список" className="favorites__name" />
-                <ul className="favorites__list">
-                    {this.state.movies.map((item) => {
-                        return <li key={item.id}>{item.title} ({item.year})</li>;
-                    })}
-                </ul>
-                <button type="button" className="favorites__save">Сохранить список</button>
-            </div>
-        );
-    }
-}
- 
+  return (
+    <div className="favorites">
+      <input className="favorites__name" placeholder="Favorites list name"/>
+      <ul className="favorites__list">
+        {favorites.movies.map((item) => {
+          return (
+            <li key={item.id}>
+              {item.title} ({item.year})
+            </li>
+          );
+        })}
+      </ul>
+      <button type="button" className="favorites__save">
+        Сохранить список
+      </button>
+    </div>
+  );
+};
+
 export default Favorites;
