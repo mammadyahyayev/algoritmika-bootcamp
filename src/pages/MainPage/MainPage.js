@@ -7,6 +7,11 @@ import Favorites from "../../components/Favorites/Favorites";
 
 const MainPage = () => {
   const [movies, setMovies] = React.useState([]);
+  const [favoriteMovies, setFavoriteMovies] = React.useState([]);
+
+  const onInsertFavorites = (movie) => {
+    setFavoriteMovies([...favoriteMovies, movie]);
+  }
 
   return (
     <div className="main-page">
@@ -17,11 +22,11 @@ const MainPage = () => {
             <SearchBox setMovies={setMovies}/>
           </div>
           <div className="main-page__movies">
-            <Movies movies={movies} />
+            <Movies movies={movies} onInsertFavorites={onInsertFavorites}/>
           </div>
         </section>
         <aside className="main-page__favorites">
-          <Favorites />
+          <Favorites favoriteMovies={favoriteMovies} />
         </aside>
       </main>
     </div>

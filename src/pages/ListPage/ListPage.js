@@ -1,29 +1,51 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import "./ListPage.css";
 
 const ListPage = () => {
-  const [movies, setMovies] = React.useState([
-    { title: "The Godfather", year: 1972, imdbID: "tt0068646" },
-  ]);
+  const { id } = useParams();
+
+  const [movies, setMovies] = React.useState([]);
 
   React.useEffect(() => {
-    const id = this.props.match.params;
-    console.log(id);
+    fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
+      .then((response) => response.json())
+      .then(async (data) => {
+        const movieArr = [];
+        for (let item of data.movies) {
+          await fetch(
+            `http://www.omdbapi.com/?i=${item.imdbID}&apikey=20498255`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              if (data.Response != "False") {
+                movieArr.push(data);
+              }
+            });
+        }
+
+        setMovies(movieArr);
+      });
   }, []);
+
+  console.log(movies);
 
   return (
     <div className="list-page">
-      <h1 className="list-page__title">Мой список</h1>
+      <h1 className="list-page__title">My List</h1>
       <ul>
-        {movies.map((item) => {
-          return (
+        {movies.length > 0 ? (
+          movies.map((item) => (
             <li key={item.imdbID}>
               <a href="https://www.imdb.com/title/tt0068646/" target="_blank">
-                {item.title} ({item.year})
+                {item.Title} ({item.Year})
               </a>
             </li>
-          );
-        })}
+          ))
+        ) : (
+          <div>No item found</div>
+        )}
       </ul>
     </div>
   );
