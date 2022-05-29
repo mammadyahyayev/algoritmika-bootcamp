@@ -1,28 +1,40 @@
 import React from "react";
 import "./SearchBox.css";
 
-const SearchBox = () => {
+const SearchBox = ({ setMovies }) => {
   const [search, setSearch] = React.useState("");
 
-  const searchLineChangeHandler = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const searchBoxSubmitHandler = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
+
+    if (!search.trim()) {
+      alert("Please enter a title before search");
+      return;
+    }
+
+    fetch(process.env.REACT_APP_MOVIE_API + `&s=${search.trim()}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.Response != "False" && data.Search.length > 0) {
+          setMovies(data.Search);
+        } else {
+          setMovies([])
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
     <div className="search-box">
-      <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
+      <form className="search-box__form" onSubmit={onSubmit}>
         <label className="search-box__form-label">
-          Искать фильм по названию:
+          Search movie by title
           <input
             value={search}
             type="text"
             className="search-box__form-input"
-            placeholder="Например, Shawshank Redemption"
-            onChange={searchLineChangeHandler}
+            placeholder="For example, Shawshank Redemption"
+            onChange={(e) => setSearch(e.target.value)}
           />
         </label>
         <button
@@ -30,7 +42,7 @@ const SearchBox = () => {
           className="search-box__form-submit"
           disabled={!search}
         >
-          Искать
+          Search
         </button>
       </form>
     </div>

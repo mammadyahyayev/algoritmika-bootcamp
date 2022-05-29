@@ -6,16 +6,18 @@ import Movies from "../../components/Movies/Movies";
 import Favorites from "../../components/Favorites/Favorites";
 
 const MainPage = () => {
+  const [movies, setMovies] = React.useState([]);
+
   return (
     <div className="main-page">
       <Header />
       <main className="main-page__content">
         <section className="main-page__main-section">
           <div className="main-page__search-box">
-            <SearchBox />
+            <SearchBox setMovies={setMovies}/>
           </div>
           <div className="main-page__movies">
-            <Movies />
+            <Movies movies={movies} />
           </div>
         </section>
         <aside className="main-page__favorites">
