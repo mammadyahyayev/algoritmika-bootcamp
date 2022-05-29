@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Favorites.css";
 
-const Favorites = ({ favoriteMovies }) => {
-  const [disable, setDisable] = React.useState(false);
+const Favorites = ({ favoriteMovies, onDeleteFavorite }) => {
   const [favoriteList, setFavoriteList] = React.useState({
     id: 0,
     title: "",
@@ -51,8 +50,14 @@ const Favorites = ({ favoriteMovies }) => {
       <ul className="favorites__list">
         {favoriteMovies.map((item) => {
           return (
-            <li key={item.imdbID}>
-              {item.Title} ({item.Year})
+            <li
+              className="favorite__item"
+              key={item.imdbID}
+            >
+              <span>
+                {item.Title} ({item.Year})
+              </span>
+              <button className="favorite-item__delete-btn" onClick={() => onDeleteFavorite(item.imdbID)}>x</button>
             </li>
           );
         })}

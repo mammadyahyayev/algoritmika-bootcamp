@@ -18,7 +18,6 @@ const ListPage = () => {
           )
             .then((response) => response.json())
             .then((data) => {
-              console.log(data);
               if (data.Response != "False") {
                 movieArr.push(data);
               }
@@ -28,8 +27,6 @@ const ListPage = () => {
         setMovies(movieArr);
       });
   }, []);
-
-  console.log(movies);
 
   return (
     <div className="list-page">

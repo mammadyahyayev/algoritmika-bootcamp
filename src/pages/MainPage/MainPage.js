@@ -11,7 +11,17 @@ const MainPage = () => {
 
   const onInsertFavorites = (movie) => {
     setFavoriteMovies([...favoriteMovies, movie]);
-  }
+  };
+
+  const onDeleteFavorite = (imdbId) => {
+    console.log(imdbId);
+
+    const clonedFavorites = [...favoriteMovies]
+
+    const newFavorites = clonedFavorites.filter(item => item.imdbID != imdbId);
+
+    setFavoriteMovies([...newFavorites]);
+  };
 
   return (
     <div className="main-page">
@@ -19,14 +29,17 @@ const MainPage = () => {
       <main className="main-page__content">
         <section className="main-page__main-section">
           <div className="main-page__search-box">
-            <SearchBox setMovies={setMovies}/>
+            <SearchBox setMovies={setMovies} />
           </div>
           <div className="main-page__movies">
-            <Movies movies={movies} onInsertFavorites={onInsertFavorites}/>
+            <Movies movies={movies} onInsertFavorites={onInsertFavorites} />
           </div>
         </section>
         <aside className="main-page__favorites">
-          <Favorites favoriteMovies={favoriteMovies} />
+          <Favorites
+            favoriteMovies={favoriteMovies}
+            onDeleteFavorite={onDeleteFavorite}
+          />
         </aside>
       </main>
     </div>
