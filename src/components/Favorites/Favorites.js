@@ -23,7 +23,7 @@ const Favorites = ({ favoriteMovies, onDeleteFavorite }) => {
       movies: favoriteMovies,
     };
 
-    fetch("https://acb-api.algoritmika.org/api/movies/list", {
+    fetch(process.env.REACT_APP_ALGORITMIKA_MOVIE_LIST_API, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

@@ -8,14 +8,13 @@ const ListPage = () => {
   const [movies, setMovies] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
+    fetch(process.env.REACT_APP_ALGORITMIKA_MOVIE_LIST_API + `/${id}`)
       .then((response) => response.json())
       .then(async (data) => {
         const movieArr = [];
+        
         for (let item of data.movies) {
-          await fetch(
-            `http://www.omdbapi.com/?i=${item.imdbID}&apikey=20498255`
-          )
+          await fetch(process.env.REACT_APP_MOVIE_API + `&i=${item.imdbID}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.Response != "False") {
@@ -41,7 +40,7 @@ const ListPage = () => {
             </li>
           ))
         ) : (
-          <div>No item found</div>
+          <div>Loading...</div>
         )}
       </ul>
     </div>

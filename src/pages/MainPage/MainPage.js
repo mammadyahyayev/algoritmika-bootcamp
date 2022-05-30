@@ -9,6 +9,10 @@ const MainPage = () => {
   const [movies, setMovies] = React.useState([]);
   const [favoriteMovies, setFavoriteMovies] = React.useState([]);
 
+  const onSetSearchedMovies = (searchedMovies) => {
+    setMovies(searchedMovies);
+  }
+
   const onInsertFavorites = (movie) => {
     setFavoriteMovies([...favoriteMovies, movie]);
   };
@@ -29,7 +33,7 @@ const MainPage = () => {
       <main className="main-page__content">
         <section className="main-page__main-section">
           <div className="main-page__search-box">
-            <SearchBox setMovies={setMovies} />
+            <SearchBox setMovies={onSetSearchedMovies} />
           </div>
           <div className="main-page__movies">
             <Movies movies={movies} onInsertFavorites={onInsertFavorites} />
