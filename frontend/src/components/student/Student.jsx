@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import EditIcon from "../../assets/images/edit.png";
 import DeleteIcon from "../../assets/images/delete.png";
 import "./Student.css";
@@ -12,7 +13,9 @@ const Student = () => {
         <p className="email">samirsamirov@gmail.com</p>
       </div>
       <div className="student-action">
-        <img src={EditIcon} alt="edit icon" />
+        <Link to={"/edit/1"} className="nav-link edit-icon">
+          <img src={EditIcon} alt="edit icon" />
+        </Link>
         <img src={DeleteIcon} alt="delete icon" />
       </div>
     </div>
