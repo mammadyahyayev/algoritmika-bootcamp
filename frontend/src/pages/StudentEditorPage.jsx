@@ -1,5 +1,5 @@
 import React from "react";
-import StudentEditor from "../components/student/StudentEditor";
+import StudentForm from "../components/student/StudentForm";
 import Navbar from "../components/Navbar";
 
 const StudentEditorPage = () => {
@@ -7,7 +7,7 @@ const StudentEditorPage = () => {
     <div>
       <Navbar />
       <div className="d-flex justify-content-center">
-        <StudentEditor />
+        <StudentForm />
       </div>
     </div>
   );

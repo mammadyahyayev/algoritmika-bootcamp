@@ -1,7 +1,7 @@
 import React from "react";
 import FormElement from "../FormElement";
 
-const StudentEditor = () => {
+const StudentForm = () => {
   return (
     <form className="col-md-6 mt-3">
       <FormElement name="name" type="text" />
@@ -15,4 +15,4 @@ const StudentEditor = () => {
   );
 };
 
-export default StudentEditor;
+export default StudentForm;
