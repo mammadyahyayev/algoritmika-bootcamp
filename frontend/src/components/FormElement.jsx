@@ -4,7 +4,7 @@ const FormElement = ({ name, type }) => {
   const lowerCaseName = name.toLowerCase();
   return (
     <div className="form-group">
-      <label for={lowerCaseName}>
+      <label htmlFor={lowerCaseName}>
         {name.substring(0, 1).toUpperCase() + lowerCaseName.substring(1)}
       </label>
       <input
