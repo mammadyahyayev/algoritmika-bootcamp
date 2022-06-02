@@ -17,7 +17,7 @@ const ListPage = () => {
           await fetch(process.env.REACT_APP_MOVIE_API + `&i=${item.imdbID}`)
             .then((response) => response.json())
             .then((data) => {
-              if (data.Response != "False") {
+              if (data.Response !== "False") {
                 movieArr.push(data);
               }
             });
@@ -25,7 +25,7 @@ const ListPage = () => {
 
         setMovies(movieArr);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="list-page">

@@ -62,7 +62,7 @@ const Favorites = ({ favoriteMovies, onDeleteFavorite }) => {
           );
         })}
       </ul>
-      {favoriteList.id != 0 ? (
+      {favoriteList.id !== 0 ? (
         <Link to={`/list/${favoriteList.id}`}>Go to list</Link>
       ) : (
         <button

@@ -15,7 +15,7 @@ const SearchBox = ({ setMovies }) => {
     fetch(process.env.REACT_APP_MOVIE_API + `&s=${search.trim()}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.Response != "False" && data.Search.length > 0) {
+        if (data.Response !== "False" && data.Search.length > 0) {
           setMovies(data.Search);
         } else {
           setMovies([])

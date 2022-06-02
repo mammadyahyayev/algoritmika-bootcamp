@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./MainPage.css";
 import Header from "../../components/Header/Header";
 import SearchBox from "../../components/SearchBox/SearchBox";
@@ -11,7 +11,7 @@ const MainPage = () => {
 
   const onSetSearchedMovies = (searchedMovies) => {
     setMovies(searchedMovies);
-  }
+  };
 
   const onInsertFavorites = (movie) => {
     setFavoriteMovies([...favoriteMovies, movie]);
@@ -20,9 +20,11 @@ const MainPage = () => {
   const onDeleteFavorite = (imdbId) => {
     console.log(imdbId);
 
-    const clonedFavorites = [...favoriteMovies]
+    const clonedFavorites = [...favoriteMovies];
 
-    const newFavorites = clonedFavorites.filter(item => item.imdbID != imdbId);
+    const newFavorites = clonedFavorites.filter(
+      (item) => item.imdbID !== imdbId
+    );
 
     setFavoriteMovies([...newFavorites]);
   };
