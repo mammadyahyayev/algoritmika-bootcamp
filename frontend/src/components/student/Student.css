@@ -9,28 +9,28 @@
   margin: 0.5em;
 }
 
-.student .student-info > * {
+.student-info > * {
   margin: 0;
 }
 
-.student .student-info .email {
+.student-info .email {
   text-decoration: underline;
   color: blue;
   font-style: italic;
 }
 
-.student .student-action {
+.student-action {
   display: flex;
 }
 
-.student .student-action img {
+.student-action img {
   width: 40px;
   height: 40px;
   cursor: pointer;
   margin: 0.4em;
 }
 
-.student .student-action .edit-icon {
+.student-action .edit-icon {
   display: block;
   padding: 0;
 }
