@@ -1,15 +1,7 @@
 import React from "react";
 import Student from "./Student";
 
-const Students = () => {
-  const [students, setStudents] = React.useState([]);
-
-  React.useEffect(() => {
-    fetch("http://localhost:9000/api/students")
-      .then((response) => response.json())
-      .then((data) => setStudents(data));
-  }, []);
-
+const Students = ({ students }) => {
   return (
     <div className="d-flex align-items-center flex-wrap justify-content-center mt-3">
       {students.length !== 0 ? (
