@@ -1,23 +1,45 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import FormElement from "../FormElement";
 
-const StudentForm = () => {
+const StudentForm = ({ studentId }) => {
   const [student, setStudent] = React.useState({
     name: "",
     surname: "",
     email: "",
-    birthdate: "",
+    birthDate: "",
   });
+
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (studentId != null) {
+      fetch(`http://localhost:9000/api/students/${studentId}`)
+        .then((response) => response.json())
+        .then((data) => setStudent(data));
+    }
+  }, []);
 
   const onSubmitStudent = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:9000/api/students", {
-      method: "POST",
+    let method = "POST";
+    let url = "http://localhost:9000/api/students";
+    if (studentId != null) {
+      method = "PUT";
+      url += `/${studentId}`;
+    }
+
+    fetch(url, {
+      method: method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(student),
     })
-      .then((result) => console.log(result))
+      .then((result) => {
+        if (result.status === 200) {
+          navigate("/students");
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -51,7 +73,7 @@ const StudentForm = () => {
         onChange={onChangeStudentData}
       />
       <FormElement
-        name="birthdate"
+        name="birthDate"
         type="date"
         value={student.birthDate}
         onChange={onChangeStudentData}
