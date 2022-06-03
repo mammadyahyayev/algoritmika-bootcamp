@@ -14,7 +14,7 @@ exports.create = (req, res) => {
     name: req.body.name,
     surname: req.body.surname,
     email: req.body.email,
-    birthDate: req.body.birthdate,
+    birthDate: req.body.birthDate,
   };
   
   Student.create(student)
