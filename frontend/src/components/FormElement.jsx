@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormElement = ({ name, type }) => {
+const FormElement = ({ name, type, value, onChange }) => {
   const lowerCaseName = name.toLowerCase();
   return (
     <div className="form-group">
@@ -8,10 +8,13 @@ const FormElement = ({ name, type }) => {
         {name.substring(0, 1).toUpperCase() + lowerCaseName.substring(1)}
       </label>
       <input
+        className="form-control"
         type={type}
         id={lowerCaseName}
-        className="form-control"
+        name={lowerCaseName}
         placeholder={`Enter your ${lowerCaseName}`}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
