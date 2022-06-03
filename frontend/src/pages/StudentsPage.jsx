@@ -23,6 +23,24 @@ const StudentsPage = () => {
     return findedStudents;
   };
 
+  const onRemoveAllStudents = () => {
+    const isDelete = window.confirm("Are you sure to delete all students?");
+
+    if (!isDelete) {
+      return;
+    }
+
+    fetch("http://localhost:9000/api/students", {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="StudentsPage">
       <Navbar />
@@ -31,7 +49,9 @@ const StudentsPage = () => {
       </div>
       <div className="d-flex justify-content-around mt-5">
         <h3>Students: {students.length}</h3>
-        <button className="btn btn-danger">Remove All</button>
+        <button className="btn btn-danger" onClick={onRemoveAllStudents}>
+          Remove All
+        </button>
       </div>
       <Students students={students} />
     </div>
