@@ -5,6 +5,8 @@ import Students from "../components/student/Students";
 
 const StudentsPage = () => {
   const [students, setStudents] = React.useState([]);
+  const [filteredStudents, setFilteredStudents] = React.useState([]);
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   React.useEffect(() => {
     fetch("http://localhost:9000/api/students")
@@ -12,15 +14,21 @@ const StudentsPage = () => {
       .then((data) => setStudents(data));
   }, []);
 
-  const onStudentSearch = (searchQuery) => {
+  const onStudentSearch = (query) => {
+    setSearchQuery(query);
+
     const copiedStudents = [...students];
 
     const findedStudents = copiedStudents.filter((student) =>
       student.name.includes(searchQuery)
     );
 
-    console.log(findedStudents);
-    return findedStudents;
+    if (searchQuery.length !== 0) {
+      setFilteredStudents(findedStudents);
+      return;
+    }
+
+    setFilteredStudents(students);
   };
 
   const onRemoveAllStudents = () => {
@@ -61,6 +69,8 @@ const StudentsPage = () => {
       .catch((err) => console.error(err));
   };
 
+  console.log(filteredStudents);
+
   return (
     <div className="StudentsPage">
       <Navbar />
@@ -68,12 +78,17 @@ const StudentsPage = () => {
         <SearchBox onStudentSearch={onStudentSearch} />
       </div>
       <div className="d-flex justify-content-around mt-5">
-        <h3>Students: {students.length}</h3>
+        <h3>
+          Students: {searchQuery ? filteredStudents.length : students.length}
+        </h3>
         <button className="btn btn-danger" onClick={onRemoveAllStudents}>
           Remove All
         </button>
       </div>
-      <Students students={students} onRemoveStudent={onRemoveStudent} />
+      <Students
+        students={searchQuery ? filteredStudents : students}
+        onRemoveStudent={onRemoveStudent}
+      />
     </div>
   );
 };
