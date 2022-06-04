@@ -35,10 +35,30 @@ const StudentsPage = () => {
     })
       .then((response) => {
         if (response.ok) {
-          window.location.reload();
+          setStudents([]);
         }
       })
       .catch((err) => console.log(err));
+  };
+
+  const onRemoveStudent = (id) => {
+    const isDelete = window.confirm("are you sure to delete this student?");
+
+    if (!isDelete) return;
+
+    const filteredStudents = students.filter((student) => student.id != id);
+
+    setStudents(filteredStudents);
+
+    fetch(`http://localhost:9000/api/students/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("User deleted");
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -53,7 +73,7 @@ const StudentsPage = () => {
           Remove All
         </button>
       </div>
-      <Students students={students} />
+      <Students students={students} onRemoveStudent={onRemoveStudent} />
     </div>
   );
 };
