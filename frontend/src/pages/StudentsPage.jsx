@@ -15,19 +15,20 @@ const StudentsPage = () => {
   }, []);
 
   const onStudentSearch = (query) => {
-    setSearchQuery(query);
-
     const copiedStudents = [...students];
 
     const findedStudents = copiedStudents.filter((student) =>
-      student.name.includes(searchQuery)
+      student.name.includes(query)
     );
+
+    console.log(findedStudents)
 
     if (searchQuery.length !== 0) {
       setFilteredStudents(findedStudents);
       return;
     }
 
+    setSearchQuery(query);
     setFilteredStudents(students);
   };
 
@@ -54,7 +55,7 @@ const StudentsPage = () => {
 
     if (!isDelete) return;
 
-    const filteredStudents = students.filter((student) => student.id != id);
+    const filteredStudents = students.filter((student) => student.id !== id);
 
     setStudents(filteredStudents);
 

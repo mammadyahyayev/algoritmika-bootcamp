@@ -13,19 +13,19 @@ const StudentForm = ({ studentId }) => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (studentId != null) {
+    if (studentId !== null) {
       fetch(`http://localhost:9000/api/students/${studentId}`)
         .then((response) => response.json())
         .then((data) => setStudent(data));
     }
-  }, []);
+  }, [studentId]);
 
   const onSubmitStudent = (e) => {
     e.preventDefault();
 
     let method = "POST";
     let url = "http://localhost:9000/api/students";
-    if (studentId != null) {
+    if (studentId !== null) {
       method = "PUT";
       url += `/${studentId}`;
     }
