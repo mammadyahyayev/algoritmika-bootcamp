@@ -69,8 +69,6 @@ const StudentsPage = () => {
       .catch((err) => console.error(err));
   };
 
-  console.log(filteredStudents);
-
   return (
     <div className="StudentsPage">
       <Navbar />

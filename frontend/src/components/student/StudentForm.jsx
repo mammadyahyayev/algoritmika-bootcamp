@@ -44,8 +44,6 @@ const StudentForm = ({ studentId }) => {
   };
 
   const onChangeStudentData = (e) => {
-    console.log(e.target.value);
-
     setStudent({
       ...student,
       [e.target.name]: e.target.value,
