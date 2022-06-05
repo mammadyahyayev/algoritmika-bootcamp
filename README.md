@@ -35,3 +35,18 @@ node server.js
 cd frontend
 npm start
 ```
+
+
+# How to start application after adding your credentials
+To start backend just run `run-backend.sh` file
+To start frontend, just run `run-frontend.sh` file
+
+1. Create 2 terminal, in the first terminal, run following command
+   ```cmd
+    sh ./run-backend.sh
+   ```
+2. In the second terminal, run following command
+   ```cmd
+    sh ./run-frontend.sh
+   ```
+
