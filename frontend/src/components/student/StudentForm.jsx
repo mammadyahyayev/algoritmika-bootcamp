@@ -13,7 +13,7 @@ const StudentForm = ({ studentId }) => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (studentId !== null) {
+    if (studentId) {
       fetch(`http://localhost:9000/api/students/${studentId}`)
         .then((response) => response.json())
         .then((data) => setStudent(data));
@@ -25,7 +25,7 @@ const StudentForm = ({ studentId }) => {
 
     let method = "POST";
     let url = "http://localhost:9000/api/students";
-    if (studentId !== null) {
+    if (studentId) {
       method = "PUT";
       url += `/${studentId}`;
     }
