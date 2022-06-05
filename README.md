@@ -37,7 +37,7 @@ npm start
 ```
 
 
-# How to start application after adding your credentials
+# How to start application with one line of code after adding your credentials
 To start backend just run `run-backend.sh` file
 To start frontend, just run `run-frontend.sh` file
 
