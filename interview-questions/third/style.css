@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.bar {
+  background-color: #add8e6;
+  width: 40px;
+  height: 92px;
+  margin-right: 20px;
+}
+
+.bar:first-child {
+  height: 250px;
+}
+
+.bar:nth-child(2) {
+  height: 174px;
+}
+
+.bar:last-child {
+  height: 221px;
+  margin-right: 0;
+}
