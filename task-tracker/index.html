@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://kit.fontawesome.com/a9545f17e8.js" crossorigin="anonymous" defer></script>
+
+    <!-- css and js files link -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+
+    <title>Task Tracker</title>
+</head>
+
+<body>
+    <div class="backdrop invisible">
+        <div class="spinner"></div>
+    </div>
+
+
+    <!-- todo list container -->
+    <div class="containers-wrapper">
+        <div class="header"></div>
+        <div class="container">
+            <h2 style="margin-bottom: 1em;">To-Do List</h2>
+            <div style="display: flex; align-items: center; margin-top: .6em; justify-content: space-around;">
+                <div id="tooltip-box" class="tooltip-area">
+                    <div class="tooltip">Please write something...</div>
+                    <img src="./images/down-arrow.svg" alt="down-arrow" class="down-arrow">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./images/sort-icon.svg" id="sort-icon">
+                </div>
+            </div>
+            <div class="todo" id="todo-input-area">
+                <input type="text" name="todo" id="todo-input">
+                <div class="wrong-icon">
+                    <p>X</p>
+                </div>
+            </div>
+
+            <div id="todos">
+            </div>
+
+            <div class="insert-button" id="insertBtn">
+                <div class="btn">
+                    <div class="plus-wrapper">
+                        <p>+</p>
+                    </div>
+                    Insert
+                    </button>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
