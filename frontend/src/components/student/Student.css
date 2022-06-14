@@ -1,0 +1,44 @@
+.student {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: #dddddd;
+  margin: 0.5em;
+}
+
+.student-info > * {
+  margin: 0;
+}
+
+.student-info .fullname {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  height: 1.2em;
+  white-space: nowrap;
+}
+
+.student-info .email {
+  text-decoration: underline;
+  color: blue;
+  font-style: italic;
+}
+
+.student-action {
+  display: flex;
+}
+
+.student-action img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0.4em;
+}
+
+.student-action .edit-icon {
+  display: block;
+  padding: 0;
+}
