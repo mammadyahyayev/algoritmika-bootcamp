@@ -1,0 +1,3 @@
+[submodule "student-management-mern"]
+	path = student-management-mern
+	url = git@github.com:MamedYahyayev/student-management-mern.git
