@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="app.js" defer></script>
+    <title>Currency Converter</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-urls">
+        <div class="logo">
+          <img src="./images/bank.svg" alt="logo" />
+        </div>
+        <ul class="nav-menu">
+          <li class="menu-item"><a href="#">БАНК</a></li>
+          <li class="menu-item"><a href="#">БИЗНЕС</a></li>
+          <li class="menu-item"><a href="#">ИНВЕСТИЦИИ</a></li>
+          <li class="menu-item"><a href="#">СТРАХОВАНИЕ</a></li>
+          <li class="menu-item"><a href="#">МОБАЙЛ</a></li>
+          <li class="menu-item"><a href="#">ПУТЕШЕСТВИЯ</a></li>
+          <li class="menu-item"><a href="#">РАЗВЛЕЧЕНИЯ</a></li>
+        </ul>
+      </div>
+      <div class="header-action">
+        <button class="login">ВОЙТИ</button>
+      </div>
+    </header>
+
+    <!-- Currency Converter Input Area -->
+    <div class="converter-area-container">
+      <div class="converter-title">Конвертер валют онлайн</div>
+
+      <div class="converter-block-wrapper">
+          <!-- BLOCK - 1 (GIVEN) -->
+          <div class="converter-area" id="first-block">
+            <div class="converter-text">У меня есть</div>
+            <div class="currency-list">
+              <button id="RUB" class="currency">RUB</button>
+              <button id="USD" class="currency">USD</button>
+              <button id="EUR" class="currency">EUR</button>
+              <button id="GBP" class="currency">GBP</button>
+            </div>
+            <div class="value-area">
+              <input class="currency-value" type="text" />
+              <p class="current-currency"></p>
+            </div>
+          </div>
+
+          <!-- BLOCK - 2 (RESULT) -->
+          <div class="converter-area" id="second-block">
+            <div class="converter-text">Хочу приобрести</div>
+            <div class="currency-list">
+              <button id="RUB" class="currency">RUB</button>
+              <button id="USD" class="currency">USD</button>
+              <button id="EUR" class="currency">EUR</button>
+              <button id="GBP" class="currency">GBP</button>
+            </div>
+            <div class="value-area">
+              <input class="currency-value" type="text"/>
+              <p class="current-currency"></p>
+            </div>
+          </div>
+      </div>
+
+
+    </div>
+  </body>
+</html>
